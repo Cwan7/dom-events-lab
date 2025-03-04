@@ -9,33 +9,64 @@ const displayElement = document.querySelector('.display')
 let number1 = '';
 let number2 = '';
 let operator = '';
+
 /*------------------------ Cached Element References ------------------------*/
 
 /*----------------------------- Event Listeners -----------------------------*/
 buttonsElement.forEach((button) => {
     button.addEventListener('click', (event) => {
         let buttonText = button.innerHTML
-        console.log(event.target.innerHTML);
+        let num1 = Number(number1);
+        let num2 = Number(number2);
+
         if (button.classList.contains('number')) {
             if (operator === '') {
-                number1 = buttonText;
-                displayElement.innerHTML = number1;
-                console.log(number1)
+                number1 = number1 + buttonText
+                displayElement.innerHTML = number1
+            
             } else {
-                number2 = buttonText;
-                displayElement.innerHTML = number2;
+                number2 = number2 + buttonText;
+                displayElement.innerHTML = number1 + operator+ number2;
             }
-        } else if (button.classList.contains ===){
+        } 
 
+        if (button.classList.contains('operator') && buttonText !== 'C') {
+                operator = buttonText; 
+                displayElement.innerHTML = number1 + buttonText                
+        }
+        if (buttonText === 'C') {
+            clearAll();
+        }
+        if (button.classList.contains('equals') && number1 !== '' && number2 !== '' && operator !== '') {           
+            let result = ''
+            result = result.slice(0,10);
+            if (operator === '+') {
+                result = num1 + num2;
+                displayElement.innerHTML = result
+            }
+            if (operator === '-') {
+                result = num1 - num2;
+                displayElement.innerHTML = result;
+            }
+            if (operator === '/') {
+                result = num1 / num2;
+                displayElement.innerHTML = result.toFixed(10);
+            }
+            if (operator === '*') {
+                result = num1 * num2;
+                displayElement.innerHTML = result;
+            }
         }
 
+    });
+});
+  
+
+/*-------------------------------- Functions --------------------------------*/
+function clearAll (){
+    number1 = '';
+    number2 = '';
+    operator = '';
+    displayElement.innerHTML = 0
 }
 
-);
-  });
-  
-  
-/*-------------------------------- Functions --------------------------------*/
-function displayText() {
-    displayElement.innerHTML = event.target.innerHTML
-}

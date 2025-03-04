@@ -53,8 +53,10 @@
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    background-color: #ff043a;
-    border-radius: 4px;
-    border: 2px solid rgb(255, 60, 60);
+    background-color: #403e3f;
+    border-radius: 20px;
+    
   }
-  
+.operator {
+    background-color:rgb(241, 174, 48)
+}  
