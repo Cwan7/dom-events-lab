@@ -14,9 +14,24 @@ let operator = '';
 /*----------------------------- Event Listeners -----------------------------*/
 buttonsElement.forEach((button) => {
     button.addEventListener('click', (event) => {
-      console.log(event.target.innerText);
-     
-    });
+        let buttonText = button.innerHTML
+        console.log(event.target.innerHTML);
+        if (button.classList.contains('number')) {
+            if (operator === '') {
+                number1 = buttonText;
+                displayElement.innerHTML = number1;
+                console.log(number1)
+            } else {
+                number2 = buttonText;
+                displayElement.innerHTML = number2;
+            }
+        } else if (button.classList.contains ===){
+
+        }
+
+}
+
+);
   });
   
   
